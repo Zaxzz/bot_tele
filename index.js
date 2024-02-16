@@ -21,11 +21,10 @@ const checkNewData = async () => {
         if (newDataCount > previousDataCount) {
             const lastDataIndex = newDataCount - 1;
             const newDataTitle = response.data[lastDataIndex].title;
-            const newDataImageUrl = response.data[lastDataIndex].images[0].url; // Assuming the API returns image URLs
+            const newDataImageUrl = response.data[lastDataIndex].images[0].url; 
             
-            // Send message with image
             await axios.post(`${TELEGRAM_API}/sendPhoto`, {
-                chat_id: '6244420760', // Ganti dengan ID obrolan Anda
+                chat_id: '6244420760', 
                 photo: newDataImageUrl,
                 caption: `Hai, ada data baru nih! Judul: ${newDataTitle}`
             });
